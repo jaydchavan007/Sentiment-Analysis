@@ -1,22 +1,34 @@
 # Sentiment-Analysis
-Sentiment Analysis Based on Hybrid Neural Network Techniques Using Binary Coordinate Ascent Algorithm
-This project implements a sentiment analysis system on the Amazon Fine Food Reviews dataset, combining advanced deep learning models with feature optimization techniques to improve classification accuracy and reduce computational complexity.
+This project implements a cutting-edge unsupervised anomaly detection framework tailored for medical imaging, particularly retinal OCT scans, using a novel Heterogeneous Autoencoder (Hetero-AE) that combines CNN and Transformer architectures for enhanced detection accuracy and interpretability.
 
-# Project Highlights
-Hybrid Model: Combines Convolutional Neural Networks (CNN) and Long Short-Term Memory (LSTM) layers to capture both local text patterns and long-range dependencies.
-Feature Optimization: Uses Binary Coordinate Ascent (BCA) for advanced feature selection, improving model efficiency and minimizing overfitting.
-Transformer Integration: Includes elements of Transformer architecture such as positional encoding and multi-headed attention to enhance representation learning.
-Comprehensive Evaluation: Analyzes performance using precision, recall, F1-score, and confusion matrices, with special focus on handling class imbalance.
+# Project Summary 
+Detect anomalies in medical images (like tumors, lesions, or structural irregularities) without requiring labeled abnormal samples by training a model to learn the distribution of normal data and identify deviations.
+
+Model Architecture:
+Encoder: Pretrained ResNet18 CNN to extract local and hierarchical features.
+Decoder: Hybrid CNN-Transformer with Multi-Scale Sparse Transformer Block (MSTB) for global context modeling and Efficient Channel Attention (ECA) for refined feature emphasis.
+
+Key Innovations:
+Combines CNN local feature learning + Transformer long-range dependency modeling.
+Uses MSTB to reduce Transformer computational cost while retaining multi-scale detail.
+Integrates ECA for lightweight, adaptive channel attention, boosting discriminative power.
+Produces interpretable heatmaps and anomaly maps for clinical decision support.
 
 # Tools & Technologies
-Programming: Python, Jupyter Notebook
-Libraries:
-pandas, numpy – data handling
-re, gensim – text cleaning & word embeddings
-scikit-learn – feature extraction (TF-IDF), feature selection, classical ML models
-tensorflow, keras – deep learning architectures
+| **Category**           | **Details**                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------- |
+| Programming Language   | Python                                                                                             |
+| Frameworks & Libraries | PyTorch, NumPy, Matplotlib, torchvision                                                            |
+| Dataset                | Retinal Optical Coherence Tomography (OCT) dataset (Kermany et al., 2018)                          |
+| Model Components       | ResNet18 (encoder), CNN layers, Transformer blocks, MSTB, ECA, hybrid decoders                     |
+| Optimization           | Adam optimizer, learning rate scheduler, gradient clipping, combined feature + reconstruction loss |
+| Evaluation Metrics     | AUC, precision, recall, accuracy, F1-score, anomaly maps, heatmaps                                 |
 
-Models:
-Logistic Regression (baseline)
-CNN, LSTM, Hybrid CNN-LSTM
-Transformer components (multi-head attention)
+#Performance Highlights
+| **Model Variant**             | **AUC** | **Precision** | **Recall** | **Accuracy** |
+| ----------------------------- | ------- | ------------- | ---------- | ------------ |
+| CNN + CNN (baseline)          | 0.73    | 0.82          | 0.90       | 0.70         |
+| HeteroAE                      | 0.85    | 0.85          | 0.93       | 0.85         |
+| HeteroAE + MSTB               | 0.96    | 0.92          | 0.95       | 0.91         |
+| HeteroAE + MSTB + ECA (final) | 0.95    | 0.92          | 0.97       | 0.94         |
+
