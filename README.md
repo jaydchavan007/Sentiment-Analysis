@@ -24,11 +24,17 @@ Produces interpretable heatmaps and anomaly maps for clinical decision support.
 | Optimization           | Adam optimizer, learning rate scheduler, gradient clipping, combined feature + reconstruction loss |
 | Evaluation Metrics     | AUC, precision, recall, accuracy, F1-score, anomaly maps, heatmaps                                 |
 
-#Performance Highlights
+# Performance Highlights
 | **Model Variant**             | **AUC** | **Precision** | **Recall** | **Accuracy** |
 | ----------------------------- | ------- | ------------- | ---------- | ------------ |
 | CNN + CNN (baseline)          | 0.73    | 0.82          | 0.90       | 0.70         |
 | HeteroAE                      | 0.85    | 0.85          | 0.93       | 0.85         |
 | HeteroAE + MSTB               | 0.96    | 0.92          | 0.95       | 0.91         |
 | HeteroAE + MSTB + ECA (final) | 0.95    | 0.92          | 0.97       | 0.94         |
+
+# Result
+Improved Recall — Final model achieves 97% recall, significantly reducing false negatives.
+High AUC — AUC reaches ~0.95–0.96, showing robust discrimination between normal and abnormal cases.
+Enhanced Interpretability — Generated heatmaps accurately localize anomalous regions, providing visual cues for clinical review.
+Efficient Computation — ECA integration improves attention without major parameter overhead, enabling near real-time inference on high-resolution images.
 
